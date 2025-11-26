@@ -1,0 +1,38 @@
+name: Update Games List
+
+on:
+  push:
+    paths:
+      - '*.html'
+      - 'games-added-list.html'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Generate games.json
+      run: |
+        files=$(ls *.html | grep -v -e 'index.html' -e 'games-added-list.html')
+        echo "[" > games.json
+        first=true
+        for f in $files; do
+          sanitized=${f%.html}
+          display=${sanitized//-/ }
+          if [ "$first" = true ]; then
+            first=false
+          else
+            echo "," >> games.json
+          fi
+          echo "  {\"file\":\"$sanitized\",\"name\":\"$display\"}" >> games.json
+        done
+        echo "]" >> games.json
+
+    - name: Commit and push
+      run: |
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git add games.json
+        git commit -m "Update games list"
+        git push
