@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RCRB - Game Rating</title>
+<style>
+    /* Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #1a1a1a, #000);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        animation: bgMove 30s infinite alternate linear;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 100% 100%; }
+    }
+
+    header {
+        text-align: center;
+        margin-top: 30px;
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+    }
+
+    header h1 {
+        font-size: 2.8rem;
+        color: #ffea00;
+        text-shadow: 0 0 10px #ffea00, 0 0 20px #ffea00;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #ffea00, 0 0 20px #ffea00; }
+        to { text-shadow: 0 0 20px #ffea00, 0 0 40px #ffea00; }
+    }
+
+    header p {
+        margin-top: 8px;
+        color: #ccc;
+        font-size: 1.1rem;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Game Card */
+    .game-card {
+        margin-top: 50px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        width: 100%;
+        max-width: 700px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fadeIn 1s ease forwards;
+    }
+
+    .game-card img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 15px #ffea00;
+    }
+
+    .game-card h2 {
+        font-size: 2rem;
+        color: #ffea00;
+        margin-bottom: 10px;
+    }
+
+    .rating {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        display: inline-block;
+        animation: pulse 2s infinite alternate;
+    }
+
+    .rating.E {
+        background: #4CAF50;
+        color: #000;
+    }
+
+    .rating.T {
+        background: #FFC107;
+        color: #000;
+    }
+
+    .rating.M {
+        background: #F44336;
+        color: #fff;
+    }
+
+    @keyframes pulse {
+        from { box-shadow: 0 0 10px #ffea00; }
+        to { box-shadow: 0 0 20px #ffea00; }
+    }
+
+    /* Tags */
+    .tags {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        padding: 5px 12px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+        background: #ffea00;
+        color: #000;
+        transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+        margin-top: auto;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #777;
+    }
+
+    footer a {
+        color: #ffea00;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+        .game-card {
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .game-card h2 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>RCRB</h1>
+    <p>Roblox Content Rating Board – Game Rating Results</p>
+</header>
+
+<div class="game-card">
+    <img src="https://tr.rbxcdn.com/180DAY-3f793128331c1abdcae8ed5444a1bd5e/768/432/Image/Webp/noFilter" alt="Game Thumbnail">
+    <h2>Pet Simulator X! by BIG Games</h2>
+    <div class="rating T">E for Everyone</div>
+    <div class="tags">
+        <div class="tag">Action</div>
+        <div class="tag">Multiplayer</div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 RCRB | <a href="#">About</a> | <a href="#">Contact</a>
+</footer>
+
+</body>
+</html>
