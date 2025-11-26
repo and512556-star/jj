@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Did You Do This?</title>
+<style>
+    /* Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #1a1a1a, #000);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        animation: bgMove 30s infinite alternate linear;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 100% 100%; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #ffea00, 0 0 20px #ffea00; }
+        to { text-shadow: 0 0 20px #ffea00, 0 0 40px #ffea00; }
+    }
+
+    /* Header */
+    header {
+        text-align: center;
+        margin-top: 40px;
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        color: #ffea00;
+        animation: glow 2s infinite alternate;
+    }
+
+    header p {
+        color: #ccc;
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    /* Content Box */
+    .content-box {
+        margin-top: 50px;
+        max-width: 800px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.1);
+        animation: fadeIn 1.2s ease forwards;
+    }
+
+    .content-box h2 {
+        color: #ffea00;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .content-box p {
+        color: #ddd;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    /* Back Button */
+    .back-button {
+        margin-top: 30px;
+        padding: 12px 25px;
+        background: #ffea00;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        background: #ffd500;
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 0 15px #ffea00, 0 0 30px #ffea00;
+    }
+
+    /* Footer */
+    footer {
+        margin-top: auto;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #777;
+    }
+
+    footer a {
+        color: #ffea00;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 2.2rem;
+        }
+
+        .content-box {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>What the hell is this for?</h1>
+    <p>The purpose behind the Roblox Content Rating Board</p>
+</header>
+
+<div class="content-box">
+    <h2>RCRB Purpose & Process</h2>
+    <p>
+        Roblox has been facing increasing safety challenges, including inappropriate behavior from bad actors and the creation of unsafe or explicit games, often referred to as “condos” or Erotic Roleplay games. 
+        I created this rating system to help players and parents quickly understand the content and safety level of Roblox games.
+    </p>
+    <p>
+        A small review team will check around 3 games per day and report their findings to me, allowing each game to receive an appropriate rating based on its content, safety, and player experience.
+    </p>
+    <button class="back-button" onclick="window.history.back()">Back to Homepage</button>
+</div>
+
+<footer>
+    &copy; 2025 RCRB | <a href="#">About</a> | <a href="#">Contact</a>
+</footer>
+
+</body>
+</html>

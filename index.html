@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RCRB - Roblox Content Rating Board</title>
+<style>
+/* Global Styles */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; }
+body { background: linear-gradient(135deg,#1a1a1a,#000); color:#fff; display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:0 20px; overflow-x:hidden; animation:backgroundMove 20s infinite alternate linear; }
+@keyframes backgroundMove { 0%{background-position:0% 0%;} 100%{background-position:100% 100%;} }
+@keyframes fadeIn { from{opacity:0; transform:translateY(-20px);} to{opacity:1; transform:translateY(0);} }
+@keyframes glow { from{ text-shadow:0 0 10px #ffea00,0 0 20px #ffea00;} to{ text-shadow:0 0 20px #ffea00,0 0 40px #ffea00;} }
+
+header, .search-container { animation:fadeIn 1.2s ease forwards; }
+header { margin-top:40px; text-align:center; opacity:0; }
+header h1 { font-size:3rem; color:#ffea00; animation:glow 2s infinite alternate; }
+header p { font-size:1.2rem; color:#ccc; margin-top:10px; }
+
+.search-container { margin-top:60px; display:flex; justify-content:center; align-items:center; width:100%; max-width:600px; backdrop-filter:blur(10px); background:rgba(255,255,255,0.05); border-radius:15px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); opacity:0; animation-delay:0.5s; }
+.search-container input[type="text"] { flex:1; padding:15px 20px; border-radius:10px 0 0 10px; border:none; font-size:1rem; outline:none; background:rgba(255,255,255,0.1); color:#fff; backdrop-filter:blur(5px); transition:all 0.3s ease; }
+.search-container input[type="text"]:focus { background:rgba(255,255,255,0.2); box-shadow:0 0 10px #ffea00; }
+.search-container button { padding:15px 25px; border:none; border-radius:0 10px 10px 0; background:#ffea00; color:#000; font-weight:bold; cursor:pointer; transition:all 0.3s ease; backdrop-filter:blur(5px); }
+.search-container button:hover { background:#ffd500; transform:scale(1.05) translateY(-2px); box-shadow:0 0 15px #ffea00,0 0 30px #ffea00; }
+
+footer { margin-top:auto; margin-bottom:30px; text-align:center; color:#777; }
+footer a { color:#ffea00; text-decoration:none; margin:0 5px; }
+footer a:hover { text-decoration:underline; }
+
+@media(max-width:600px){
+    header h1{font-size:2.2rem;}
+    .search-container{flex-direction:column;}
+    .search-container input,.search-container button{border-radius:10px; margin:5px 0;}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>RCRB</h1>
+    <p>Roblox Content Rating Board – Search a Roblox game to see its rating</p>
+</header>
+
+<div class="search-container">
+    <input type="text" id="gameName" placeholder="Enter Roblox game name...">
+    <button onclick="searchGame()">Search</button>
+</div>
+
+<footer>
+    &copy; 2025 RCRB | 
+    <a href="#">About</a> | 
+    <a href="https://cloverclowzer.is-a.dev">Me</a> | 
+    <a href="why-did-you-make-this.html">Why Does This Exist</a>
+</footer>
+
+<script>
+function searchGame() {
+    var game = document.getElementById('gameName').value.trim();
+    if(game){
+        // sanitize: lowercase, remove spaces and special chars
+        var sanitized = game.toLowerCase().replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
+        // redirect to the correct game HTML file inside /games
+        window.location.href = sanitized + ".html";
+    } else {
+        alert("Please enter a Roblox game name!");
+    }
+}
+</script>
+
+</body>
+</html>
